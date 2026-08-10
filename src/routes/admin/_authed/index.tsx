@@ -9,8 +9,7 @@ export const Route = createFileRoute("/admin/_authed/")({
 const CARDS = [
   { to: "/admin/settings", title: "Settings", desc: "Assessment link, analytics IDs, contact details." },
   { to: "/admin/content", title: "Content", desc: "Hero, offer, FAQ and final call-to-action copy." },
-  { to: "/admin/leads", title: "Leads", desc: "Enquiries captured on the site." },
-  { to: "/admin/analytics", title: "Analytics", desc: "First-party page-view and CTA counters." },
+  { to: "/admin/analytics", title: "Analytics", desc: "Page views, CTA clicks and AI-crawler hits." },
 ] as const;
 
 function Overview() {

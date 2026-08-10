@@ -1,0 +1,32 @@
+# Divine Leads
+
+> Divine Leads is a done-for-you patient-acquisition system for aesthetic, cosmetic, and elective
+> healthcare clinics in India. It closes the gap between a patient enquiry and a booked, showed-up
+> consultation: instant response at any hour, relentless multi-week follow-up written in the clinic's
+> voice, qualification, calendar booking, and auditable attribution. Divine Leads does not sell leads
+> and does not provide medical advice — it installs the engine that converts the enquiries a clinic
+> already gets.
+
+## What it does
+- Instant enquiry response (booking rates fall sharply after the first few minutes/hours).
+- Follow-up that does not stop at message two, in the clinic's own tone, escalating to a human.
+- Consultation booking straight into the clinic's calendar, with reminders to lift show-up rates.
+- Marketing data only — patient enquiries stay in the clinic's own systems; no clinical records.
+
+## Who it is for
+Hair transplant, aesthetic dermatology, plastic/cosmetic surgery, cosmetic dentistry, bariatric, and
+fertility/IVF clinics in India with 30+ enquiries a month and average treatment value ₹25,000+.
+
+## Key pages
+- Home: https://cosmetic.divineleads.guru/
+- Specialties: https://cosmetic.divineleads.guru/specialties
+- Hair transplant clinics: https://cosmetic.divineleads.guru/specialties/hair-transplant
+- Dermatology / aesthetic clinics: https://cosmetic.divineleads.guru/specialties/dermatology
+- Plastic & cosmetic surgery: https://cosmetic.divineleads.guru/specialties/plastic-surgery
+- Cosmetic dentistry: https://cosmetic.divineleads.guru/specialties/cosmetic-dentistry
+- Aesthetic clinics: https://cosmetic.divineleads.guru/specialties/aesthetic-clinics
+- Guides (resource hub): https://cosmetic.divineleads.guru/guides
+- Contact: https://cosmetic.divineleads.guru/contact
+
+## Contact
+Email: connect@divineleads.guru · WhatsApp: +91 93568 19176 · Service area: India (delivered remotely).

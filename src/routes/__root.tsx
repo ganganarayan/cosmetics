@@ -4,15 +4,19 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { getPublicConfig, trackView } from "@/server/actions";
 import { SiteConfigProvider } from "@/components/site-config";
 import { AnalyticsScripts } from "@/components/analytics-scripts";
+import { SITE_URL } from "@/lib/site";
+
+const GSC_VERIFICATION = import.meta.env["VITE_GSC_VERIFICATION"] as string | undefined;
 
 function NotFoundComponent() {
   return (
@@ -92,7 +96,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "Divine Leads" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}/og.svg` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_URL}/og.svg` },
+      ...(GSC_VERIFICATION
+        ? [{ name: "google-site-verification", content: GSC_VERIFICATION }]
+        : []),
     ],
     links: [
       {
@@ -129,6 +139,21 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// Records client-side (SPA) navigations. The initial load is already counted
+// server-side in the root loader, so we skip the first render.
+function PageViewTracker() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    void trackView({ data: { path: pathname } }).catch(() => {});
+  }, [pathname]);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const config = Route.useLoaderData();
@@ -137,6 +162,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SiteConfigProvider value={config}>
         <AnalyticsScripts />
+        <PageViewTracker />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </SiteConfigProvider>

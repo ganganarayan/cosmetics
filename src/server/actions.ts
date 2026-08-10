@@ -1,9 +1,40 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequestHeader } from "@tanstack/react-start/server";
 import { z } from "zod";
 
-import { contentSchema, leadInputSchema, settingsSchema } from "./schema";
+import { contentSchema, settingsSchema } from "./schema";
 import * as store from "./store";
 import { clearSession, requireAdmin, setSession, verifyPassword } from "./session";
+
+// Known AI assistants / search + AI crawlers, matched case-insensitively against
+// the User-Agent. Extend as new crawlers appear.
+const BOT_UA: Array<[RegExp, string]> = [
+  [/GPTBot/i, "GPTBot"],
+  [/OAI-SearchBot/i, "OAI-SearchBot"],
+  [/ChatGPT-User/i, "ChatGPT-User"],
+  [/ClaudeBot/i, "ClaudeBot"],
+  [/Claude-Web/i, "Claude-Web"],
+  [/anthropic-ai/i, "anthropic-ai"],
+  [/PerplexityBot/i, "PerplexityBot"],
+  [/Perplexity-User/i, "Perplexity-User"],
+  [/Google-Extended/i, "Google-Extended"],
+  [/Googlebot/i, "Googlebot"],
+  [/bingbot/i, "Bingbot"],
+  [/Applebot/i, "Applebot"],
+  [/Amazonbot/i, "Amazonbot"],
+  [/meta-externalagent/i, "meta-externalagent"],
+  [/Bytespider/i, "Bytespider"],
+  [/CCBot/i, "CCBot"],
+  [/DuckDuckBot/i, "DuckDuckBot"],
+  [/YandexBot/i, "YandexBot"],
+];
+
+function classifyBot(ua: string): string | null {
+  for (const [re, name] of BOT_UA) {
+    if (re.test(ua)) return name;
+  }
+  return null;
+}
 
 // --- Public ---------------------------------------------------------------
 
@@ -17,6 +48,9 @@ export const trackView = createServerFn({ method: "POST" })
   .validator((d: unknown) => z.object({ path: z.string() }).parse(d))
   .handler(async ({ data }) => {
     await store.incrementPageView(data.path);
+    const ua = getRequestHeader("user-agent") ?? "";
+    const bot = classifyBot(ua);
+    if (bot) await store.incrementBotHit(bot);
     return { ok: true as const };
   });
 
@@ -24,14 +58,6 @@ export const trackCta = createServerFn({ method: "POST" })
   .validator((d: unknown) => z.object({ location: z.string() }).parse(d))
   .handler(async ({ data }) => {
     await store.incrementCta(data.location);
-    return { ok: true as const };
-  });
-
-// Ready to wire to an on-site form later; not called by the public site yet.
-export const submitLead = createServerFn({ method: "POST" })
-  .validator((d: unknown) => leadInputSchema.parse(d))
-  .handler(async ({ data }) => {
-    await store.addLead(data);
     return { ok: true as const };
   });
 
@@ -86,11 +112,6 @@ export const adminSaveContent = createServerFn({ method: "POST" })
     await store.saveContent(data);
     return { ok: true as const };
   });
-
-export const adminListLeads = createServerFn({ method: "GET" }).handler(async () => {
-  requireAdmin();
-  return store.listLeads();
-});
 
 export const adminGetAnalytics = createServerFn({ method: "GET" }).handler(async () => {
   requireAdmin();

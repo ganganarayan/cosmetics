@@ -91,31 +91,13 @@ export const DEFAULT_CONTENT: Content = {
 };
 
 // ---------------------------------------------------------------------------
-// Leads — inbox records. No on-site capture form yet; addLead is ready to wire.
-// ---------------------------------------------------------------------------
-export const leadSchema = z.object({
-  id: z.string(),
-  createdAt: z.string(),
-  name: z.string().default(""),
-  clinic: z.string().default(""),
-  city: z.string().default(""),
-  contact: z.string().default(""),
-  message: z.string().default(""),
-  source: z.string().default("website"),
-});
-export type Lead = z.infer<typeof leadSchema>;
-
-export const leadInputSchema = leadSchema.omit({ id: true, createdAt: true }).partial().extend({
-  name: z.string().optional(),
-});
-export type LeadInput = z.infer<typeof leadInputSchema>;
-
-// ---------------------------------------------------------------------------
-// Analytics — lightweight first-party counters. GA4/Meta remain the rich source.
+// Analytics — lightweight first-party aggregate counters (no per-event rows, so
+// the file stays tiny regardless of traffic). GA4/Meta remain the rich source.
 // ---------------------------------------------------------------------------
 export const analyticsSchema = z.object({
   pageViews: z.record(z.string(), z.number()).default({}),
   ctaClicks: z.record(z.string(), z.number()).default({}),
+  botHits: z.record(z.string(), z.number()).default({}),
   updatedAt: z.string().default(""),
 });
 export type Analytics = z.infer<typeof analyticsSchema>;

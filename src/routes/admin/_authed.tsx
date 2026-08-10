@@ -16,7 +16,6 @@ const NAV = [
   { to: "/admin", label: "Overview", exact: true },
   { to: "/admin/settings", label: "Settings", exact: false },
   { to: "/admin/content", label: "Content", exact: false },
-  { to: "/admin/leads", label: "Leads", exact: false },
   { to: "/admin/analytics", label: "Analytics", exact: false },
 ] as const;
 

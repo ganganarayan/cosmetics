@@ -13,12 +13,9 @@ import {
   DEFAULT_ANALYTICS,
   DEFAULT_CONTENT,
   DEFAULT_SETTINGS,
-  leadSchema,
   settingsSchema,
   type Analytics,
   type Content,
-  type Lead,
-  type LeadInput,
   type Settings,
 } from "./schema";
 import { z } from "zod";
@@ -28,7 +25,6 @@ const DATA_DIR = process.env["DATA_DIR"] ?? "./data";
 const FILES = {
   settings: "settings.json",
   content: "content.json",
-  leads: "leads.json",
   analytics: "analytics.json",
 } as const;
 
@@ -94,24 +90,7 @@ export function saveContent(value: Content): Promise<Content> {
   return writeJson(FILES.content, contentSchema, value);
 }
 
-// --- Leads ----------------------------------------------------------------
-const leadsSchema = z.array(leadSchema);
-
-export function listLeads(): Promise<Array<Lead>> {
-  return readJson(FILES.leads, leadsSchema, []);
-}
-export async function addLead(input: LeadInput): Promise<Lead> {
-  const lead: Lead = leadSchema.parse({
-    ...input,
-    id: randomUUID(),
-    createdAt: new Date().toISOString(),
-  });
-  const existing = await listLeads();
-  await writeJson(FILES.leads, leadsSchema, [lead, ...existing]);
-  return lead;
-}
-
-// --- Analytics (lightweight counters) -------------------------------------
+// --- Analytics (lightweight aggregate counters) ---------------------------
 export function getAnalytics(): Promise<Analytics> {
   return readJson(FILES.analytics, analyticsSchema, DEFAULT_ANALYTICS);
 }
@@ -124,6 +103,12 @@ export async function incrementPageView(path: string): Promise<void> {
 export async function incrementCta(location: string): Promise<void> {
   const a = await getAnalytics();
   a.ctaClicks[location] = (a.ctaClicks[location] ?? 0) + 1;
+  a.updatedAt = new Date().toISOString();
+  await writeJson(FILES.analytics, analyticsSchema, a);
+}
+export async function incrementBotHit(bot: string): Promise<void> {
+  const a = await getAnalytics();
+  a.botHits[bot] = (a.botHits[bot] ?? 0) + 1;
   a.updatedAt = new Date().toISOString();
   await writeJson(FILES.analytics, analyticsSchema, a);
 }
