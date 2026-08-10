@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useSiteConfig } from "@/components/site-config";
 
 const LEGAL = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -9,6 +10,7 @@ const LEGAL = [
 ] as const;
 
 export function SiteFooter() {
+  const { settings } = useSiteConfig();
   return (
     <footer className="border-t border-line bg-paper pb-20 sm:pb-10">
       <div className="mx-auto max-w-6xl px-5 py-14">
@@ -19,11 +21,11 @@ export function SiteFooter() {
               The AI patient-engine for clinics — booked consultations on autopilot.
             </p>
             <div className="mt-5 flex flex-col gap-1 text-[0.95rem]">
-              <a href="mailto:connect@divineleads.guru" className="text-ink hover:text-teal">
-                connect@divineleads.guru
+              <a href={`mailto:${settings.contactEmail}`} className="text-ink hover:text-teal">
+                {settings.contactEmail}
               </a>
               <a
-                href="https://wa.me/919356819176"
+                href={`https://wa.me/${settings.whatsappNumber}`}
                 className="text-ink hover:text-teal"
                 rel="noopener noreferrer"
                 target="_blank"

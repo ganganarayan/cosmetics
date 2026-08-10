@@ -10,6 +10,9 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { getPublicConfig, trackView } from "@/server/actions";
+import { SiteConfigProvider } from "@/components/site-config";
+import { AnalyticsScripts } from "@/components/analytics-scripts";
 
 function NotFoundComponent() {
   return (
@@ -69,6 +72,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: async ({ location }) => {
+    const config = await getPublicConfig();
+    // Count page views server-side only (skip client-side navigations).
+    if (typeof window === "undefined") {
+      void trackView({ data: { path: location.pathname } }).catch(() => {});
+    }
+    return config;
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -120,11 +131,15 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const config = Route.useLoaderData();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteConfigProvider value={config}>
+        <AnalyticsScripts />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </SiteConfigProvider>
     </QueryClientProvider>
   );
 }

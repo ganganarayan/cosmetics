@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/use-reveal";
-import { ASSESSMENT_URL } from "@/lib/site";
+import { useSiteConfig } from "@/components/site-config";
 
 export function Section({
   id,
@@ -34,9 +34,10 @@ export function ScorecardCta({
   className?: string;
   label?: string;
 }) {
+  const { settings } = useSiteConfig();
   return (
     <a
-      href={ASSESSMENT_URL}
+      href={settings.assessmentUrl}
       onClick={() => track("scorecard_cta_click", { location })}
       className={cn(
         "inline-flex items-center justify-center rounded-full bg-teal px-6 py-3.5 text-center text-[0.95rem] font-medium text-primary-foreground transition-colors hover:bg-ink",

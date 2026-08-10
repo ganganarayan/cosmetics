@@ -18,6 +18,9 @@ dist-ssr
 .env
 .env.*
 
+# Local data store (JSON files live on a Railway volume in production)
+/data
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

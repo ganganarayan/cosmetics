@@ -16,6 +16,13 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as AdminAuthedRouteImport } from './routes/admin/_authed'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminAuthedIndexRouteImport } from './routes/admin/_authed/index'
+import { Route as AdminAuthedAnalyticsRouteImport } from './routes/admin/_authed/analytics'
+import { Route as AdminAuthedContentRouteImport } from './routes/admin/_authed/content'
+import { Route as AdminAuthedLeadsRouteImport } from './routes/admin/_authed/leads'
+import { Route as AdminAuthedSettingsRouteImport } from './routes/admin/_authed/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +59,41 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAuthedRoute = AdminAuthedRouteImport.update({
+  id: '/admin/_authed',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthedIndexRoute = AdminAuthedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedAnalyticsRoute = AdminAuthedAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedContentRoute = AdminAuthedContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedLeadsRoute = AdminAuthedLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedSettingsRoute = AdminAuthedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +103,13 @@ export interface FileRoutesByFullPath {
   '/shipping': typeof ShippingRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/analytics': typeof AdminAuthedAnalyticsRoute
+  '/admin/content': typeof AdminAuthedContentRoute
+  '/admin/leads': typeof AdminAuthedLeadsRoute
+  '/admin/settings': typeof AdminAuthedSettingsRoute
+  '/admin/': typeof AdminAuthedIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +119,12 @@ export interface FileRoutesByTo {
   '/shipping': typeof ShippingRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/analytics': typeof AdminAuthedAnalyticsRoute
+  '/admin/content': typeof AdminAuthedContentRoute
+  '/admin/leads': typeof AdminAuthedLeadsRoute
+  '/admin/settings': typeof AdminAuthedSettingsRoute
+  '/admin': typeof AdminAuthedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +135,13 @@ export interface FileRoutesById {
   '/shipping': typeof ShippingRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin/_authed': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/_authed/analytics': typeof AdminAuthedAnalyticsRoute
+  '/admin/_authed/content': typeof AdminAuthedContentRoute
+  '/admin/_authed/leads': typeof AdminAuthedLeadsRoute
+  '/admin/_authed/settings': typeof AdminAuthedSettingsRoute
+  '/admin/_authed/': typeof AdminAuthedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +153,13 @@ export interface FileRouteTypes {
     | '/shipping'
     | '/terms'
     | '/thank-you'
+    | '/admin'
+    | '/admin/login'
+    | '/admin/analytics'
+    | '/admin/content'
+    | '/admin/leads'
+    | '/admin/settings'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +169,12 @@ export interface FileRouteTypes {
     | '/shipping'
     | '/terms'
     | '/thank-you'
+    | '/admin/login'
+    | '/admin/analytics'
+    | '/admin/content'
+    | '/admin/leads'
+    | '/admin/settings'
+    | '/admin'
   id:
     | '__root__'
     | '/'
@@ -109,6 +184,13 @@ export interface FileRouteTypes {
     | '/shipping'
     | '/terms'
     | '/thank-you'
+    | '/admin/_authed'
+    | '/admin/login'
+    | '/admin/_authed/analytics'
+    | '/admin/_authed/content'
+    | '/admin/_authed/leads'
+    | '/admin/_authed/settings'
+    | '/admin/_authed/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +201,8 @@ export interface RootRouteChildren {
   ShippingRoute: typeof ShippingRoute
   TermsRoute: typeof TermsRoute
   ThankYouRoute: typeof ThankYouRoute
+  AdminAuthedRoute: typeof AdminAuthedRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,8 +256,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/_authed': {
+      id: '/admin/_authed'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminAuthedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authed/': {
+      id: '/admin/_authed/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminAuthedIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/analytics': {
+      id: '/admin/_authed/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAuthedAnalyticsRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/content': {
+      id: '/admin/_authed/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminAuthedContentRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/leads': {
+      id: '/admin/_authed/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminAuthedLeadsRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/settings': {
+      id: '/admin/_authed/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminAuthedSettingsRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
   }
 }
+
+interface AdminAuthedRouteChildren {
+  AdminAuthedAnalyticsRoute: typeof AdminAuthedAnalyticsRoute
+  AdminAuthedContentRoute: typeof AdminAuthedContentRoute
+  AdminAuthedLeadsRoute: typeof AdminAuthedLeadsRoute
+  AdminAuthedSettingsRoute: typeof AdminAuthedSettingsRoute
+  AdminAuthedIndexRoute: typeof AdminAuthedIndexRoute
+}
+
+const AdminAuthedRouteChildren: AdminAuthedRouteChildren = {
+  AdminAuthedAnalyticsRoute: AdminAuthedAnalyticsRoute,
+  AdminAuthedContentRoute: AdminAuthedContentRoute,
+  AdminAuthedLeadsRoute: AdminAuthedLeadsRoute,
+  AdminAuthedSettingsRoute: AdminAuthedSettingsRoute,
+  AdminAuthedIndexRoute: AdminAuthedIndexRoute,
+}
+
+const AdminAuthedRouteWithChildren = AdminAuthedRoute._addFileChildren(
+  AdminAuthedRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -183,6 +336,8 @@ const rootRouteChildren: RootRouteChildren = {
   ShippingRoute: ShippingRoute,
   TermsRoute: TermsRoute,
   ThankYouRoute: ThankYouRoute,
+  AdminAuthedRoute: AdminAuthedRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
-import { ASSESSMENT_URL, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
+import { useSiteConfig } from "@/components/site-config";
 
 const TITLE = "Contact Divine Leads | Patient Acquisition for Clinics";
 const DESC =
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const { settings } = useSiteConfig();
   return (
     <PageShell>
       <div className="mx-auto max-w-3xl px-5 py-16 md:py-24">
@@ -38,10 +40,10 @@ function Contact() {
             <dt className="eyebrow">Email</dt>
             <dd className="mt-3">
               <a
-                href="mailto:connect@divineleads.guru"
+                href={`mailto:${settings.contactEmail}`}
                 className="text-[1rem] text-ink hover:text-teal"
               >
-                connect@divineleads.guru
+                {settings.contactEmail}
               </a>
             </dd>
           </div>
@@ -49,7 +51,7 @@ function Contact() {
             <dt className="eyebrow">WhatsApp</dt>
             <dd className="mt-3">
               <a
-                href="https://wa.me/919356819176"
+                href={`https://wa.me/${settings.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[1rem] text-ink hover:text-teal"
@@ -74,7 +76,7 @@ function Contact() {
 
         <div className="mt-12 flex flex-col gap-3 sm:flex-row">
           <a
-            href={ASSESSMENT_URL}
+            href={settings.assessmentUrl}
             className="inline-flex items-center justify-center rounded-full bg-teal px-6 py-3.5 text-[0.95rem] font-medium text-primary-foreground transition-colors hover:bg-ink"
           >
             Get your leak number — 4 min, free

@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
-import { ASSESSMENT_URL } from "@/lib/site";
+import { useSiteConfig } from "@/components/site-config";
 
 const NAV = [
   { label: "The Gap", href: "/#the-gap" },
@@ -15,6 +15,7 @@ const NAV = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { settings } = useSiteConfig();
 
   useEffect(() => {
     if (!open) return;
@@ -48,7 +49,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href={ASSESSMENT_URL}
+            href={settings.assessmentUrl}
             onClick={() => track("scorecard_cta_click", { location: "header" })}
             className="hidden rounded-full bg-teal px-4 py-2 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-ink sm:inline-flex"
           >
@@ -80,7 +81,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href={ASSESSMENT_URL}
+              href={settings.assessmentUrl}
               onClick={() => {
                 setOpen(false);
                 track("scorecard_cta_click", { location: "mobile_menu" });
@@ -98,6 +99,7 @@ export function SiteHeader() {
 
 export function MobileCtaBar() {
   const [visible, setVisible] = useState(false);
+  const { settings } = useSiteConfig();
 
   useEffect(() => {
     const onScroll = () => {
@@ -118,7 +120,7 @@ export function MobileCtaBar() {
       aria-hidden={!visible}
     >
       <a
-        href={ASSESSMENT_URL}
+        href={settings.assessmentUrl}
         tabIndex={visible ? 0 : -1}
         onClick={() => track("scorecard_cta_click", { location: "mobile_bar" })}
         className="block rounded-full bg-teal px-5 py-3 text-center text-[0.95rem] font-medium text-primary-foreground"
