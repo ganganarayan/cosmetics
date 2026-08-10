@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { BackButton } from "@/components/back-button";
 import { SITE_URL } from "@/lib/site";
 import { useSiteConfig } from "@/components/site-config";
+import { formatWhatsApp } from "@/lib/utils";
 
 const TITLE = "Contact Divine Leads | Patient Acquisition for Clinics";
 const DESC =
@@ -27,6 +29,7 @@ function Contact() {
   return (
     <PageShell>
       <div className="mx-auto max-w-3xl px-5 py-16 md:py-24">
+        <BackButton className="mb-8" />
         <p className="eyebrow">Contact</p>
         <h1 className="mt-5 text-[2rem] text-ink md:text-[2.8rem]">Talk to us directly.</h1>
         <p className="mt-6 max-w-xl text-[1.02rem] text-muted-foreground">
@@ -56,7 +59,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="text-[1rem] text-ink hover:text-teal"
               >
-                Message us
+                {formatWhatsApp(settings.whatsappNumber)}
               </a>
             </dd>
           </div>

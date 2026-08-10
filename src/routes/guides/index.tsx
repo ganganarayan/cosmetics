@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { BackButton } from "@/components/back-button";
 import { SITE_URL } from "@/lib/site";
 import { breadcrumbLd, graph, orgLd } from "@/lib/seo";
 
@@ -72,6 +73,7 @@ function GuidesIndex() {
   return (
     <PageShell>
       <div className="mx-auto max-w-4xl px-5 py-16 md:py-24">
+        <BackButton className="mb-8" />
         <p className="eyebrow">Guides</p>
         <h1 className="mt-5 text-[2rem] text-ink md:text-[2.8rem]">
           The mechanics of turning enquiries into consultations.

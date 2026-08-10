@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useSiteConfig } from "@/components/site-config";
+import { formatWhatsApp } from "@/lib/utils";
 
 const LEGAL = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -37,7 +38,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                WhatsApp us
+                WhatsApp {formatWhatsApp(settings.whatsappNumber)}
               </a>
             </div>
           </div>

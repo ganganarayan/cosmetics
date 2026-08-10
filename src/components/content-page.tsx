@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { PageShell } from "@/components/page-shell";
 import { ScorecardCta } from "@/components/landing/primitives";
+import { BackButton } from "@/components/back-button";
 
 export type RelatedLink = { href: string; label: string };
 
@@ -22,6 +23,7 @@ export function ContentPage({
   return (
     <PageShell>
       <article className="mx-auto max-w-3xl px-5 py-16 md:py-24">
+        <BackButton className="mb-8" />
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="mt-5 text-[2rem] leading-tight text-ink md:text-[2.6rem]">{title}</h1>
         <p className="mt-6 text-[1.08rem] text-muted-foreground">{intro}</p>

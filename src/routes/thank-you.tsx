@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { BackButton } from "@/components/back-button";
 
 const TITLE = "Thank You | Divine Leads";
 const DESC = "We have your details and will be in touch shortly.";
@@ -23,6 +24,7 @@ function ThankYou() {
   return (
     <PageShell>
       <div className="mx-auto max-w-2xl px-5 py-24 md:py-32">
+        <BackButton className="mb-8" />
         <p className="eyebrow">Received</p>
         <h1 className="mt-5 text-[2rem] text-ink md:text-[2.8rem]">That&rsquo;s with us.</h1>
         <p className="mt-6 text-[1.02rem] text-muted-foreground">
