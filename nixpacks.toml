@@ -1,0 +1,12 @@
+# Railway / Nixpacks build config.
+# Builds the TanStack Start app for a Node server (Nitro node-server preset)
+# and runs the SSR server. Nitro binds 0.0.0.0 and honours Railway's $PORT.
+
+[variables]
+NITRO_PRESET = "node-server"
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node .output/server/index.mjs"
