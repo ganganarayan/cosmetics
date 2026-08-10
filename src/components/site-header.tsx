@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import { useSiteConfig } from "@/components/site-config";
 
 const NAV = [
-  { label: "The Gap", href: "/#the-gap" },
   { label: "The Engine", href: "/#the-engine" },
-  { label: "Who It's For", href: "/#who-its-for" },
+  { label: "Specialties", href: "/specialties" },
+  { label: "Guides", href: "/guides" },
   { label: "Investment", href: "/#investment" },
   { label: "FAQ", href: "/#faq" },
 ];

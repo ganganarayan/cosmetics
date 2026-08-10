@@ -18,10 +18,22 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as AdminAuthedRouteImport } from './routes/admin/_authed'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as GuidesIndexRouteImport } from './routes/guides/index'
+import { Route as GuidesHowManyFollowUpsRouteImport } from './routes/guides/how-many-follow-ups'
+import { Route as GuidesImproveShowUpRateRouteImport } from './routes/guides/improve-show-up-rate'
+import { Route as GuidesLeadResponseTimeRouteImport } from './routes/guides/lead-response-time'
+import { Route as GuidesReduceMissedLeadsRouteImport } from './routes/guides/reduce-missed-leads'
+import { Route as GuidesWhyLeadsDontBookRouteImport } from './routes/guides/why-leads-dont-book'
+import { Route as GuidesWhyLeadsStopRespondingRouteImport } from './routes/guides/why-leads-stop-responding'
+import { Route as SpecialtiesIndexRouteImport } from './routes/specialties/index'
+import { Route as SpecialtiesAestheticClinicsRouteImport } from './routes/specialties/aesthetic-clinics'
+import { Route as SpecialtiesCosmeticDentistryRouteImport } from './routes/specialties/cosmetic-dentistry'
+import { Route as SpecialtiesDermatologyRouteImport } from './routes/specialties/dermatology'
+import { Route as SpecialtiesHairTransplantRouteImport } from './routes/specialties/hair-transplant'
+import { Route as SpecialtiesPlasticSurgeryRouteImport } from './routes/specialties/plastic-surgery'
 import { Route as AdminAuthedIndexRouteImport } from './routes/admin/_authed/index'
 import { Route as AdminAuthedAnalyticsRouteImport } from './routes/admin/_authed/analytics'
 import { Route as AdminAuthedContentRouteImport } from './routes/admin/_authed/content'
-import { Route as AdminAuthedLeadsRouteImport } from './routes/admin/_authed/leads'
 import { Route as AdminAuthedSettingsRouteImport } from './routes/admin/_authed/settings'
 
 const IndexRoute = IndexRouteImport.update({
@@ -69,6 +81,76 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesHowManyFollowUpsRoute = GuidesHowManyFollowUpsRouteImport.update({
+  id: '/guides/how-many-follow-ups',
+  path: '/guides/how-many-follow-ups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesImproveShowUpRateRoute = GuidesImproveShowUpRateRouteImport.update({
+  id: '/guides/improve-show-up-rate',
+  path: '/guides/improve-show-up-rate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesLeadResponseTimeRoute = GuidesLeadResponseTimeRouteImport.update({
+  id: '/guides/lead-response-time',
+  path: '/guides/lead-response-time',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesReduceMissedLeadsRoute = GuidesReduceMissedLeadsRouteImport.update({
+  id: '/guides/reduce-missed-leads',
+  path: '/guides/reduce-missed-leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesWhyLeadsDontBookRoute = GuidesWhyLeadsDontBookRouteImport.update({
+  id: '/guides/why-leads-dont-book',
+  path: '/guides/why-leads-dont-book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesWhyLeadsStopRespondingRoute =
+  GuidesWhyLeadsStopRespondingRouteImport.update({
+    id: '/guides/why-leads-stop-responding',
+    path: '/guides/why-leads-stop-responding',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SpecialtiesIndexRoute = SpecialtiesIndexRouteImport.update({
+  id: '/specialties/',
+  path: '/specialties/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpecialtiesAestheticClinicsRoute =
+  SpecialtiesAestheticClinicsRouteImport.update({
+    id: '/specialties/aesthetic-clinics',
+    path: '/specialties/aesthetic-clinics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SpecialtiesCosmeticDentistryRoute =
+  SpecialtiesCosmeticDentistryRouteImport.update({
+    id: '/specialties/cosmetic-dentistry',
+    path: '/specialties/cosmetic-dentistry',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SpecialtiesDermatologyRoute = SpecialtiesDermatologyRouteImport.update({
+  id: '/specialties/dermatology',
+  path: '/specialties/dermatology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpecialtiesHairTransplantRoute =
+  SpecialtiesHairTransplantRouteImport.update({
+    id: '/specialties/hair-transplant',
+    path: '/specialties/hair-transplant',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SpecialtiesPlasticSurgeryRoute =
+  SpecialtiesPlasticSurgeryRouteImport.update({
+    id: '/specialties/plastic-surgery',
+    path: '/specialties/plastic-surgery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AdminAuthedIndexRoute = AdminAuthedIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -82,11 +164,6 @@ const AdminAuthedAnalyticsRoute = AdminAuthedAnalyticsRouteImport.update({
 const AdminAuthedContentRoute = AdminAuthedContentRouteImport.update({
   id: '/content',
   path: '/content',
-  getParentRoute: () => AdminAuthedRoute,
-} as any)
-const AdminAuthedLeadsRoute = AdminAuthedLeadsRouteImport.update({
-  id: '/leads',
-  path: '/leads',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
 const AdminAuthedSettingsRoute = AdminAuthedSettingsRouteImport.update({
@@ -105,9 +182,21 @@ export interface FileRoutesByFullPath {
   '/thank-you': typeof ThankYouRoute
   '/admin': typeof AdminAuthedRouteWithChildren
   '/admin/login': typeof AdminLoginRoute
+  '/guides/how-many-follow-ups': typeof GuidesHowManyFollowUpsRoute
+  '/guides/improve-show-up-rate': typeof GuidesImproveShowUpRateRoute
+  '/guides/lead-response-time': typeof GuidesLeadResponseTimeRoute
+  '/guides/reduce-missed-leads': typeof GuidesReduceMissedLeadsRoute
+  '/guides/why-leads-dont-book': typeof GuidesWhyLeadsDontBookRoute
+  '/guides/why-leads-stop-responding': typeof GuidesWhyLeadsStopRespondingRoute
+  '/specialties/aesthetic-clinics': typeof SpecialtiesAestheticClinicsRoute
+  '/specialties/cosmetic-dentistry': typeof SpecialtiesCosmeticDentistryRoute
+  '/specialties/dermatology': typeof SpecialtiesDermatologyRoute
+  '/specialties/hair-transplant': typeof SpecialtiesHairTransplantRoute
+  '/specialties/plastic-surgery': typeof SpecialtiesPlasticSurgeryRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/specialties/': typeof SpecialtiesIndexRoute
   '/admin/analytics': typeof AdminAuthedAnalyticsRoute
   '/admin/content': typeof AdminAuthedContentRoute
-  '/admin/leads': typeof AdminAuthedLeadsRoute
   '/admin/settings': typeof AdminAuthedSettingsRoute
   '/admin/': typeof AdminAuthedIndexRoute
 }
@@ -120,9 +209,21 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
   '/admin/login': typeof AdminLoginRoute
+  '/guides/how-many-follow-ups': typeof GuidesHowManyFollowUpsRoute
+  '/guides/improve-show-up-rate': typeof GuidesImproveShowUpRateRoute
+  '/guides/lead-response-time': typeof GuidesLeadResponseTimeRoute
+  '/guides/reduce-missed-leads': typeof GuidesReduceMissedLeadsRoute
+  '/guides/why-leads-dont-book': typeof GuidesWhyLeadsDontBookRoute
+  '/guides/why-leads-stop-responding': typeof GuidesWhyLeadsStopRespondingRoute
+  '/specialties/aesthetic-clinics': typeof SpecialtiesAestheticClinicsRoute
+  '/specialties/cosmetic-dentistry': typeof SpecialtiesCosmeticDentistryRoute
+  '/specialties/dermatology': typeof SpecialtiesDermatologyRoute
+  '/specialties/hair-transplant': typeof SpecialtiesHairTransplantRoute
+  '/specialties/plastic-surgery': typeof SpecialtiesPlasticSurgeryRoute
+  '/guides': typeof GuidesIndexRoute
+  '/specialties': typeof SpecialtiesIndexRoute
   '/admin/analytics': typeof AdminAuthedAnalyticsRoute
   '/admin/content': typeof AdminAuthedContentRoute
-  '/admin/leads': typeof AdminAuthedLeadsRoute
   '/admin/settings': typeof AdminAuthedSettingsRoute
   '/admin': typeof AdminAuthedIndexRoute
 }
@@ -137,9 +238,21 @@ export interface FileRoutesById {
   '/thank-you': typeof ThankYouRoute
   '/admin/_authed': typeof AdminAuthedRouteWithChildren
   '/admin/login': typeof AdminLoginRoute
+  '/guides/how-many-follow-ups': typeof GuidesHowManyFollowUpsRoute
+  '/guides/improve-show-up-rate': typeof GuidesImproveShowUpRateRoute
+  '/guides/lead-response-time': typeof GuidesLeadResponseTimeRoute
+  '/guides/reduce-missed-leads': typeof GuidesReduceMissedLeadsRoute
+  '/guides/why-leads-dont-book': typeof GuidesWhyLeadsDontBookRoute
+  '/guides/why-leads-stop-responding': typeof GuidesWhyLeadsStopRespondingRoute
+  '/specialties/aesthetic-clinics': typeof SpecialtiesAestheticClinicsRoute
+  '/specialties/cosmetic-dentistry': typeof SpecialtiesCosmeticDentistryRoute
+  '/specialties/dermatology': typeof SpecialtiesDermatologyRoute
+  '/specialties/hair-transplant': typeof SpecialtiesHairTransplantRoute
+  '/specialties/plastic-surgery': typeof SpecialtiesPlasticSurgeryRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/specialties/': typeof SpecialtiesIndexRoute
   '/admin/_authed/analytics': typeof AdminAuthedAnalyticsRoute
   '/admin/_authed/content': typeof AdminAuthedContentRoute
-  '/admin/_authed/leads': typeof AdminAuthedLeadsRoute
   '/admin/_authed/settings': typeof AdminAuthedSettingsRoute
   '/admin/_authed/': typeof AdminAuthedIndexRoute
 }
@@ -155,9 +268,21 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/admin'
     | '/admin/login'
+    | '/guides/how-many-follow-ups'
+    | '/guides/improve-show-up-rate'
+    | '/guides/lead-response-time'
+    | '/guides/reduce-missed-leads'
+    | '/guides/why-leads-dont-book'
+    | '/guides/why-leads-stop-responding'
+    | '/specialties/aesthetic-clinics'
+    | '/specialties/cosmetic-dentistry'
+    | '/specialties/dermatology'
+    | '/specialties/hair-transplant'
+    | '/specialties/plastic-surgery'
+    | '/guides/'
+    | '/specialties/'
     | '/admin/analytics'
     | '/admin/content'
-    | '/admin/leads'
     | '/admin/settings'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -170,9 +295,21 @@ export interface FileRouteTypes {
     | '/terms'
     | '/thank-you'
     | '/admin/login'
+    | '/guides/how-many-follow-ups'
+    | '/guides/improve-show-up-rate'
+    | '/guides/lead-response-time'
+    | '/guides/reduce-missed-leads'
+    | '/guides/why-leads-dont-book'
+    | '/guides/why-leads-stop-responding'
+    | '/specialties/aesthetic-clinics'
+    | '/specialties/cosmetic-dentistry'
+    | '/specialties/dermatology'
+    | '/specialties/hair-transplant'
+    | '/specialties/plastic-surgery'
+    | '/guides'
+    | '/specialties'
     | '/admin/analytics'
     | '/admin/content'
-    | '/admin/leads'
     | '/admin/settings'
     | '/admin'
   id:
@@ -186,9 +323,21 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/admin/_authed'
     | '/admin/login'
+    | '/guides/how-many-follow-ups'
+    | '/guides/improve-show-up-rate'
+    | '/guides/lead-response-time'
+    | '/guides/reduce-missed-leads'
+    | '/guides/why-leads-dont-book'
+    | '/guides/why-leads-stop-responding'
+    | '/specialties/aesthetic-clinics'
+    | '/specialties/cosmetic-dentistry'
+    | '/specialties/dermatology'
+    | '/specialties/hair-transplant'
+    | '/specialties/plastic-surgery'
+    | '/guides/'
+    | '/specialties/'
     | '/admin/_authed/analytics'
     | '/admin/_authed/content'
-    | '/admin/_authed/leads'
     | '/admin/_authed/settings'
     | '/admin/_authed/'
   fileRoutesById: FileRoutesById
@@ -203,6 +352,19 @@ export interface RootRouteChildren {
   ThankYouRoute: typeof ThankYouRoute
   AdminAuthedRoute: typeof AdminAuthedRouteWithChildren
   AdminLoginRoute: typeof AdminLoginRoute
+  GuidesHowManyFollowUpsRoute: typeof GuidesHowManyFollowUpsRoute
+  GuidesImproveShowUpRateRoute: typeof GuidesImproveShowUpRateRoute
+  GuidesLeadResponseTimeRoute: typeof GuidesLeadResponseTimeRoute
+  GuidesReduceMissedLeadsRoute: typeof GuidesReduceMissedLeadsRoute
+  GuidesWhyLeadsDontBookRoute: typeof GuidesWhyLeadsDontBookRoute
+  GuidesWhyLeadsStopRespondingRoute: typeof GuidesWhyLeadsStopRespondingRoute
+  SpecialtiesAestheticClinicsRoute: typeof SpecialtiesAestheticClinicsRoute
+  SpecialtiesCosmeticDentistryRoute: typeof SpecialtiesCosmeticDentistryRoute
+  SpecialtiesDermatologyRoute: typeof SpecialtiesDermatologyRoute
+  SpecialtiesHairTransplantRoute: typeof SpecialtiesHairTransplantRoute
+  SpecialtiesPlasticSurgeryRoute: typeof SpecialtiesPlasticSurgeryRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
+  SpecialtiesIndexRoute: typeof SpecialtiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -270,6 +432,97 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-many-follow-ups': {
+      id: '/guides/how-many-follow-ups'
+      path: '/guides/how-many-follow-ups'
+      fullPath: '/guides/how-many-follow-ups'
+      preLoaderRoute: typeof GuidesHowManyFollowUpsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/improve-show-up-rate': {
+      id: '/guides/improve-show-up-rate'
+      path: '/guides/improve-show-up-rate'
+      fullPath: '/guides/improve-show-up-rate'
+      preLoaderRoute: typeof GuidesImproveShowUpRateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/lead-response-time': {
+      id: '/guides/lead-response-time'
+      path: '/guides/lead-response-time'
+      fullPath: '/guides/lead-response-time'
+      preLoaderRoute: typeof GuidesLeadResponseTimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/reduce-missed-leads': {
+      id: '/guides/reduce-missed-leads'
+      path: '/guides/reduce-missed-leads'
+      fullPath: '/guides/reduce-missed-leads'
+      preLoaderRoute: typeof GuidesReduceMissedLeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/why-leads-dont-book': {
+      id: '/guides/why-leads-dont-book'
+      path: '/guides/why-leads-dont-book'
+      fullPath: '/guides/why-leads-dont-book'
+      preLoaderRoute: typeof GuidesWhyLeadsDontBookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/why-leads-stop-responding': {
+      id: '/guides/why-leads-stop-responding'
+      path: '/guides/why-leads-stop-responding'
+      fullPath: '/guides/why-leads-stop-responding'
+      preLoaderRoute: typeof GuidesWhyLeadsStopRespondingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/': {
+      id: '/specialties/'
+      path: '/specialties'
+      fullPath: '/specialties/'
+      preLoaderRoute: typeof SpecialtiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/aesthetic-clinics': {
+      id: '/specialties/aesthetic-clinics'
+      path: '/specialties/aesthetic-clinics'
+      fullPath: '/specialties/aesthetic-clinics'
+      preLoaderRoute: typeof SpecialtiesAestheticClinicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/cosmetic-dentistry': {
+      id: '/specialties/cosmetic-dentistry'
+      path: '/specialties/cosmetic-dentistry'
+      fullPath: '/specialties/cosmetic-dentistry'
+      preLoaderRoute: typeof SpecialtiesCosmeticDentistryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/dermatology': {
+      id: '/specialties/dermatology'
+      path: '/specialties/dermatology'
+      fullPath: '/specialties/dermatology'
+      preLoaderRoute: typeof SpecialtiesDermatologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/hair-transplant': {
+      id: '/specialties/hair-transplant'
+      path: '/specialties/hair-transplant'
+      fullPath: '/specialties/hair-transplant'
+      preLoaderRoute: typeof SpecialtiesHairTransplantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specialties/plastic-surgery': {
+      id: '/specialties/plastic-surgery'
+      path: '/specialties/plastic-surgery'
+      fullPath: '/specialties/plastic-surgery'
+      preLoaderRoute: typeof SpecialtiesPlasticSurgeryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/_authed/': {
       id: '/admin/_authed/'
       path: '/'
@@ -291,13 +544,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthedContentRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/leads': {
-      id: '/admin/_authed/leads'
-      path: '/leads'
-      fullPath: '/admin/leads'
-      preLoaderRoute: typeof AdminAuthedLeadsRouteImport
-      parentRoute: typeof AdminAuthedRoute
-    }
     '/admin/_authed/settings': {
       id: '/admin/_authed/settings'
       path: '/settings'
@@ -311,7 +557,6 @@ declare module '@tanstack/react-router' {
 interface AdminAuthedRouteChildren {
   AdminAuthedAnalyticsRoute: typeof AdminAuthedAnalyticsRoute
   AdminAuthedContentRoute: typeof AdminAuthedContentRoute
-  AdminAuthedLeadsRoute: typeof AdminAuthedLeadsRoute
   AdminAuthedSettingsRoute: typeof AdminAuthedSettingsRoute
   AdminAuthedIndexRoute: typeof AdminAuthedIndexRoute
 }
@@ -319,7 +564,6 @@ interface AdminAuthedRouteChildren {
 const AdminAuthedRouteChildren: AdminAuthedRouteChildren = {
   AdminAuthedAnalyticsRoute: AdminAuthedAnalyticsRoute,
   AdminAuthedContentRoute: AdminAuthedContentRoute,
-  AdminAuthedLeadsRoute: AdminAuthedLeadsRoute,
   AdminAuthedSettingsRoute: AdminAuthedSettingsRoute,
   AdminAuthedIndexRoute: AdminAuthedIndexRoute,
 }
@@ -338,6 +582,19 @@ const rootRouteChildren: RootRouteChildren = {
   ThankYouRoute: ThankYouRoute,
   AdminAuthedRoute: AdminAuthedRouteWithChildren,
   AdminLoginRoute: AdminLoginRoute,
+  GuidesHowManyFollowUpsRoute: GuidesHowManyFollowUpsRoute,
+  GuidesImproveShowUpRateRoute: GuidesImproveShowUpRateRoute,
+  GuidesLeadResponseTimeRoute: GuidesLeadResponseTimeRoute,
+  GuidesReduceMissedLeadsRoute: GuidesReduceMissedLeadsRoute,
+  GuidesWhyLeadsDontBookRoute: GuidesWhyLeadsDontBookRoute,
+  GuidesWhyLeadsStopRespondingRoute: GuidesWhyLeadsStopRespondingRoute,
+  SpecialtiesAestheticClinicsRoute: SpecialtiesAestheticClinicsRoute,
+  SpecialtiesCosmeticDentistryRoute: SpecialtiesCosmeticDentistryRoute,
+  SpecialtiesDermatologyRoute: SpecialtiesDermatologyRoute,
+  SpecialtiesHairTransplantRoute: SpecialtiesHairTransplantRoute,
+  SpecialtiesPlasticSurgeryRoute: SpecialtiesPlasticSurgeryRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
+  SpecialtiesIndexRoute: SpecialtiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

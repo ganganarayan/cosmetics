@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://cosmetic.divineleads.guru/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://cosmetic.divineleads.guru/contact</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://cosmetic.divineleads.guru/privacy</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://cosmetic.divineleads.guru/terms</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://cosmetic.divineleads.guru/refund</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://cosmetic.divineleads.guru/shipping</loc>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://cosmetic.divineleads.guru/</loc><priority>1.0</priority></url>
+
+  <url><loc>https://cosmetic.divineleads.guru/specialties</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/specialties/hair-transplant</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/specialties/dermatology</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/specialties/plastic-surgery</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/specialties/cosmetic-dentistry</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/specialties/aesthetic-clinics</loc><priority>0.8</priority></url>
+
+  <url><loc>https://cosmetic.divineleads.guru/guides</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/why-leads-dont-book</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/lead-response-time</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/how-many-follow-ups</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/why-leads-stop-responding</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/improve-show-up-rate</loc><priority>0.7</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/guides/reduce-missed-leads</loc><priority>0.7</priority></url>
+
+  <url><loc>https://cosmetic.divineleads.guru/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/terms</loc><priority>0.3</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/refund</loc><priority>0.3</priority></url>
+  <url><loc>https://cosmetic.divineleads.guru/shipping</loc><priority>0.3</priority></url>
 </urlset>
