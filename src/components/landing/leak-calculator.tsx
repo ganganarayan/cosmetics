@@ -213,7 +213,6 @@ export function LeakCalculator() {
               <ScorecardCta
                 location="calculator"
                 className="mt-5 w-full sm:w-auto"
-                label="Get your leak number — 4 min, free"
               />
             </div>
           </div>

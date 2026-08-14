@@ -16,7 +16,7 @@ export function Hero() {
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <ScorecardCta location="hero" label="Get your clinic's leak number — 4 minutes, free" />
+          <ScorecardCta location="hero" />
         </div>
         <p className="mt-4 font-mono text-[0.78rem] text-muted-foreground">
           Full result shown instantly. Nothing gated. No call required.

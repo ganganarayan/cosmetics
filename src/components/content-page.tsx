@@ -11,7 +11,7 @@ export function ContentPage({
   intro,
   children,
   related,
-  ctaLabel = "Get your clinic's leak number — 4 minutes, free",
+  ctaLabel = "Patient Acquisition Audit",
 }: {
   eyebrow: string;
   title: string;

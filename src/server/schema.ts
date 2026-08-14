@@ -4,7 +4,7 @@ import { z } from "zod";
 // Settings — runtime-editable configuration that replaces build-time env vars.
 // ---------------------------------------------------------------------------
 export const settingsSchema = z.object({
-  assessmentUrl: z.string().default("#"),
+  assessmentUrl: z.string().default("https://assess.divineleads.guru/a/patient-acquisition-audit"),
   metaPixelId: z.string().default(""),
   ga4Id: z.string().default(""),
   contactEmail: z.string().default("connect@divineleads.guru"),

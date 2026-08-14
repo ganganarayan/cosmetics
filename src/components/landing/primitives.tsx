@@ -28,7 +28,7 @@ export function Section({
 export function ScorecardCta({
   location,
   className,
-  label = "Get your clinic's leak number — 4 minutes, free, no call required",
+  label = "Patient Acquisition Audit",
 }: {
   location: string;
   className?: string;

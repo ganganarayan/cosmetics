@@ -51,7 +51,6 @@ export function FinalCta() {
           <ScorecardCta
             location="final"
             className="bg-gold text-accent-foreground hover:bg-gold/90"
-            label="Get your clinic's leak number — 4 minutes, free"
           />
         </div>
       </div>

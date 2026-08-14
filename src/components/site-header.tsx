@@ -53,7 +53,7 @@ export function SiteHeader() {
             onClick={() => track("scorecard_cta_click", { location: "header" })}
             className="hidden rounded-full bg-teal px-4 py-2 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-ink sm:inline-flex"
           >
-            Get your leak number
+            Patient Acquisition Audit
           </a>
           <button
             type="button"
@@ -88,7 +88,7 @@ export function SiteHeader() {
               }}
               className="mt-3 mb-3 rounded-full bg-teal px-4 py-3 text-center text-[0.9rem] font-medium text-primary-foreground"
             >
-              Get your leak number · 4 min
+              Patient Acquisition Audit
             </a>
           </nav>
         </div>
@@ -125,7 +125,7 @@ export function MobileCtaBar() {
         onClick={() => track("scorecard_cta_click", { location: "mobile_bar" })}
         className="block rounded-full bg-teal px-5 py-3 text-center text-[0.95rem] font-medium text-primary-foreground"
       >
-        Get your leak number · 4 min
+        Patient Acquisition Audit
       </a>
     </div>
   );

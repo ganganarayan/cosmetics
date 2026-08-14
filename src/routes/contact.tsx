@@ -82,7 +82,7 @@ function Contact() {
             href={settings.assessmentUrl}
             className="inline-flex items-center justify-center rounded-full bg-teal px-6 py-3.5 text-[0.95rem] font-medium text-primary-foreground transition-colors hover:bg-ink"
           >
-            Get your leak number — 4 min, free
+            Patient Acquisition Audit
           </a>
         </div>
 
