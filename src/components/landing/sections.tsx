@@ -108,9 +108,12 @@ export function Investment() {
 
       <div className="mt-10 max-w-3xl border border-line bg-card">
         {[
-          ["Setup and installation", "₹40,000 – ₹75,000 one-time, scaled by branch count"],
+          ["Setup and installation", "Included"],
           ["Monthly retainer", "₹1,00,000"],
-          ["Ad spend", "Billed to you directly. Never absorbed, never marked up."],
+          [
+            "Ad spend",
+            "You fund it directly on your own ad account — top up if prepaid, or keep auto-debit funded if postpaid. We never pay or bill ad spend; we monitor it and alert you, but keeping the account funded is your responsibility.",
+          ],
         ].map(([k, v]) => (
           <div
             key={k}

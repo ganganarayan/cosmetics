@@ -46,17 +46,18 @@ function Terms() {
       <section>
         <h2>3. Fees and ad spend</h2>
         <ul>
-          <li>Setup and installation: ₹40,000 – ₹75,000 one-time, scaled by branch count.</li>
+          <li>Setup and installation: included — no separate setup fee.</li>
           <li>Monthly retainer: ₹1,00,000.</li>
           <li>
-            Ad spend is billed to you directly by the ad platforms. It is never part of our fee,
-            never absorbed by us and never marked up.
+            Ad spend is billed to you directly by the ad platforms and is never part of our fee — we
+            neither pay it nor recover it. You keep your ad account funded (top up if prepaid, or
+            maintain auto-debit if postpaid); we monitor spend and alert you, but keeping the
+            account funded is your responsibility.
           </li>
         </ul>
         <p>
-          Setup fees are payable before installation begins. Retainers are billed monthly in
-          advance. Applicable Indian taxes are added to invoices. Invoices are due within seven
-          days; we may pause work on overdue accounts.
+          Retainers are billed monthly in advance. Applicable Indian taxes are added to invoices.
+          Invoices are due within seven days; we may pause work on overdue accounts.
         </p>
       </section>
 
