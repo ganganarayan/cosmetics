@@ -103,7 +103,7 @@ export function Investment() {
     <Section id="investment" className="border-t border-line">
       <p className="eyebrow">Investment</p>
       <h2 className="mt-4 max-w-3xl text-[1.6rem] text-ink md:text-[2.4rem]">
-        Ad spend is billed to you directly and is never part of our fee. Here is everything else.
+        Here is what you pay.
       </h2>
 
       <div className="mt-10 max-w-3xl border border-line bg-card">
