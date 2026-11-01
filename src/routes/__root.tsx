@@ -136,6 +136,12 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        {/* Content-engine DM-link lead tracker. Inert for visitors who did not
+            arrive from a DM link. Loads on every page via the shared shell. */}
+        <script
+          src="https://content-engine-production-230f.up.railway.app/api/v1/t/lead.js"
+          async
+        />
       </body>
     </html>
   );
